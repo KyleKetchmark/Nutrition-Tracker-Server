@@ -4,14 +4,14 @@ const { UserModel } = require("../models")
 const validateSession = async (req, res, next) => {
     try {
         if (req.method == "OPTIONS") {
-            console.log(req.headers);
+            // console.log(req.headers);
             next()
         } else if (req.headers.authorization) {
             // console.log(req.headers)
             const {authorization} = req.headers
         
             const payload = authorization ? jwt.verify(authorization, process.env.JWT_SECRET) : undefined
-            console.log(payload);
+            // console.log(payload);
     
             if (payload) {
                 const foundUser = await UserModel.findOne({where: { id: payload.id}});
