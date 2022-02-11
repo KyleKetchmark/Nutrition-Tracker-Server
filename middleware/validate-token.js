@@ -10,7 +10,8 @@ const validateSession = async (req, res, next) => {
             // console.log(req.headers)
             const {authorization} = req.headers
         
-            const payload = authorization ? jwt.verify(authorization, process.env.JWT_SECRET) : undefined
+            const payload = authorization ? jwt.verify(authorization, process.env.JWT_SECRET) 
+            : undefined
             // console.log(payload);
     
             if (payload) {
